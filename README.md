@@ -1,6 +1,6 @@
 # LLP Recasting Repository
 
-This repository holds the necessary code for recasting long-lived particle (LLP) searches.
+This repository holds example codes for recasting long-lived particle (LLP) searches.
 
 ## Repository Structure ##
 
