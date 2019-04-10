@@ -22,7 +22,7 @@ In order to compile the recasting code, run:
 make main_hscp.exe pythia8path=<PATH-TO-PYTHIA8FOLDER>
 ```
 
-where <PATH-TO-PYTHIA8FOLDER> should point to the Pythia8 folder containing the Pythia lib and include folders.
+where PATH-TO-PYTHIA8FOLDER should point to the Pythia8 folder containing the Pythia lib and include folders.
 
 ## Running ##
 
