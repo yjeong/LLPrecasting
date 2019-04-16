@@ -5,7 +5,7 @@
 
 This repository holds the main code for recasting the 8 TeV ATLAS search for displaced vertices
 in association with jets ([arXiv:1504.05162](https://arxiv.org/abs/1504.05162)). See also [ATLAS-SUSY-2014-02](https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2014-02/). It includes
-a simple displaced vertex reconstruction algorithm based on a function form for tracking efficiency.
+a simple displaced vertex reconstruction algorithm based on a functional form for tracking efficiency.
 
 This code was used in the following publication:
 
@@ -38,7 +38,7 @@ You can run with:
 ```
 ./displacedRecoVertex
 ```
-An example Makefile can be found [here](DisplacedVertices/ATLAS-SUSY-2016-08_GCottin/pythiaCode/Makefile)
+An example Makefile can be found in DisplacedVertices/ATLAS-SUSY-2016-08_GCottin/pythiaCode/Makefile
 The basic required input is a (parton level) LHE or SLHA file.
 The output are efficiency files and cutflows 
 
@@ -64,4 +64,4 @@ In this folder you will find:
 
 * dgsPhenoPlots.py -- the main plotting script for making the plots in [arXiv:1606.03099](https://arxiv.org/abs/1606.03099)
 * BestFitChi2.py --  code that decides on the best track efficiency parametrization parameters
-* trackStudies.py -- validation plots for the track studies performed with [trackStudies.cc](DisplacedVertices/ATLAS-SUSY-2014-02_GCottin/pythiaCode/trackStudies.cc)
+* trackStudies.py -- validation plots for the track studies performed with DisplacedVertices/ATLAS-SUSY-2014-02_GCottin/pythiaCode/trackStudies.cc
