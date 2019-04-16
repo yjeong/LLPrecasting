@@ -7,11 +7,20 @@ This repository holds the main code for recasting the 13 TeV ATLAS search for di
 plus missing transverse momenta ([ATLAS-SUSY-2016-08](https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2016-08/))
 using the parametrized efficiencies for event and displaced vertex reconstruction provided [here](https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2016-08/hepdata_info.pdf).
 
+This code (with appropriate modifications) was used in the following publications:
+
+https://arxiv.org/abs/1803.10379
+https://arxiv.org/abs/1801.02734
+https://arxiv.org/abs/1806.05191
+https://arxiv.org/abs/1902.05673
+
+Please cite if you use this code :-)
+
 ## Pre-Requisites ##
 
 The following pre-requisites must be installed before compiling the main code:
 
-  * [python]
+  * python
   * [FastJet](http://fastjet.fr/)
   * [Pythia8](http://home.thep.lu.se/~torbjorn/pythia8) (compiled with FastJet)
 
@@ -49,7 +58,8 @@ parametrized_truthEff.cc -- the ATLAS digitized efficiencies
 parametrized_truthEff.h  -- the ATLAS digitized efficiencies
 displacedTruthVertex_paramEff_RhadID.cc -- the recasting code for each mass, varying the lifetime
 displacedTruthVertex_varyMass.cc -- the recasting code for for a fixed lifetime, varying the gluino mass 
-
+ToyDetector-ATLAS-tracklessjet.cc
+ToyDetector-ATLAS-tracklessjet.h
 ## Plots ##
 
 Comparison plots with the recasted limits and the ATLAS observed limits.

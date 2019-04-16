@@ -8,9 +8,9 @@ The repository folder structure is organized according to the type of LLP signat
 corresponding analysis and authors:
 
   * [Displaced Vertices](DisplacedVertices)  
-    * [13 TeV ATLAS Displaced Vertex plus MET](DisplacedVertices/ATLAS-SUSY-2016-08)
-    * [13 TeV ATLAS Displaced Vertex plus MET](DisplacedVertices/ATLAS-SUSY-2016-08_GCottin)
-    * [8 TeV ATLAS Displaced Vertex plus MET](DisplacedVertices/ATLAS-SUSY-2016-08_GCottin)
+    * [13 TeV ATLAS Displaced Vertex plus MET by ALessa](DisplacedVertices/ATLAS-SUSY-2016-08)
+    * [13 TeV ATLAS Displaced Vertex plus MET by GCottin](DisplacedVertices/ATLAS-SUSY-2016-08_GCottin)
+    * [8 TeV ATLAS Displaced Vertex by GCottin](DisplacedVertices/ATLAS-SUSY-150405162_GCottin)
   * [Heavy Stable Charged Particles](HSCPs)
     * [8 TeV CMS HSCP](HSCPs/CMS-EXO-12-026)
     * 13 TeV CMS HSCP (CMS-PAS-EXO-16-036)
@@ -18,7 +18,7 @@ corresponding analysis and authors:
   * [Displaced Jets](DisplacedJet)
 
 A README file can be found inside each folder with the required dependencies
-and basic instructions on how to run the recasting code.
+and basic instructions on how to run the recasting codes.
 
 ## Running the Recasting Code ##
 
