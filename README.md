@@ -10,7 +10,7 @@ corresponding analysis and authors:
   * [Displaced Vertices](DisplacedVertices)  
     * [13 TeV ATLAS Displaced Vertex plus MET by ALessa](DisplacedVertices/ATLAS-SUSY-2016-08)
     * [13 TeV ATLAS Displaced Vertex plus MET by GCottin](DisplacedVertices/ATLAS-SUSY-2016-08_GCottin)
-    * [8 TeV ATLAS Displaced Vertex by GCottin](DisplacedVertices/ATLAS-SUSY-150405162_GCottin)
+    * [8 TeV ATLAS Displaced Vertex plus jets by GCottin](DisplacedVertices/ATLAS-SUSY-2014-02_GCottin)
   * [Heavy Stable Charged Particles](HSCPs)
     * [8 TeV CMS HSCP](HSCPs/CMS-EXO-12-026)
     * 13 TeV CMS HSCP (CMS-PAS-EXO-16-036)

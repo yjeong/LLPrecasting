@@ -9,6 +9,7 @@ using the parametrized efficiencies for event and displaced vertex reconstructio
 
 This code (with appropriate modifications) was used in the following publications:
 
+* https://arxiv.org/abs/1903.04497
 * https://arxiv.org/abs/1803.10379
 * https://arxiv.org/abs/1801.02734
 * https://arxiv.org/abs/1806.05191
