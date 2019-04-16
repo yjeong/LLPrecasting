@@ -49,15 +49,15 @@ The output are efficiency files and cutflows (save to the "truthDV_data" folder 
 
 In this folder you will find:
 
-Makefile -- paths should be edited accordingly      
-gluino_tau_0.0.slha -- the Split SUSY model spectra          
-pythia8.cfg -- pythia configuration parameters     
-parametrized_truthEff.cc -- the ATLAS digitized efficiencies
-parametrized_truthEff.h  -- the ATLAS digitized efficiencies
-displacedTruthVertex_paramEff_RhadID.cc -- the recasting code for each mass, varying the lifetime
-displacedTruthVertex_varyMass.cc -- the recasting code for for a fixed lifetime, varying the gluino mass 
-ToyDetector-ATLAS-tracklessjet.cc
-ToyDetector-ATLAS-tracklessjet.h
+* Makefile -- paths should be edited accordingly      
+* gluino_tau_0.0.slha -- the Split SUSY model spectra          
+* pythia8.cfg -- pythia configuration parameters     
+* parametrized_truthEff.cc -- the ATLAS digitized efficiencies
+* parametrized_truthEff.h  
+* displacedTruthVertex_paramEff_RhadID.cc -- the recasting code for each mass, varying the lifetime
+* displacedTruthVertex_varyMass.cc -- the recasting code for for a fixed lifetime, varying the gluino mass 
+* ToyDetector-ATLAS-tracklessjet.cc -- the custom made detector simulation for this recast
+* ToyDetector-ATLAS-tracklessjet.h 
 
 ## Plots ##
 
