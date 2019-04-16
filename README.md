@@ -5,10 +5,12 @@ This repository holds example codes for recasting long-lived particle (LLP) sear
 ## Repository Structure ##
 
 The repository folder structure is organized according to the type of LLP signature and the
-corresponding analysis:
+corresponding analysis and authors:
 
   * [Displaced Vertices](DisplacedVertices)  
     * [13 TeV ATLAS Displaced Vertex plus MET](DisplacedVertices/ATLAS-SUSY-2016-08)
+    * [13 TeV ATLAS Displaced Vertex plus MET](DisplacedVertices/ATLAS-SUSY-2016-08_GCottin)
+    * [8 TeV ATLAS Displaced Vertex plus MET](DisplacedVertices/ATLAS-SUSY-2016-08_GCottin)
   * [Heavy Stable Charged Particles](HSCPs)
     * [8 TeV CMS HSCP](HSCPs/CMS-EXO-12-026)
     * 13 TeV CMS HSCP (CMS-PAS-EXO-16-036)
