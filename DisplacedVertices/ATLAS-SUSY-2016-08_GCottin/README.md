@@ -9,10 +9,10 @@ using the parametrized efficiencies for event and displaced vertex reconstructio
 
 This code (with appropriate modifications) was used in the following publications:
 
-https://arxiv.org/abs/1803.10379
-https://arxiv.org/abs/1801.02734
-https://arxiv.org/abs/1806.05191
-https://arxiv.org/abs/1902.05673
+* https://arxiv.org/abs/1803.10379
+* https://arxiv.org/abs/1801.02734
+* https://arxiv.org/abs/1806.05191
+* https://arxiv.org/abs/1902.05673
 
 Please cite if you use this code :-)
 
@@ -49,8 +49,6 @@ The output are efficiency files and cutflows (save to the "truthDV_data" folder 
 
 In this folder you will find:
 
-displacedTruthVertex_paramEff_RhadID
-
 Makefile -- paths should be edited accordingly      
 gluino_tau_0.0.slha -- the Split SUSY model spectra          
 pythia8.cfg -- pythia configuration parameters     
@@ -60,6 +58,7 @@ displacedTruthVertex_paramEff_RhadID.cc -- the recasting code for each mass, var
 displacedTruthVertex_varyMass.cc -- the recasting code for for a fixed lifetime, varying the gluino mass 
 ToyDetector-ATLAS-tracklessjet.cc
 ToyDetector-ATLAS-tracklessjet.h
+
 ## Plots ##
 
 Comparison plots with the recasted limits and the ATLAS observed limits.
