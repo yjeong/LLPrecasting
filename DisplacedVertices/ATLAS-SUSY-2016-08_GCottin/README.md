@@ -7,13 +7,9 @@ This repository holds the main code for recasting the 13 TeV ATLAS search for di
 plus missing transverse momenta ([ATLAS-SUSY-2016-08](https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2016-08/))
 using the parametrized efficiencies for event and displaced vertex reconstruction provided [here](https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2016-08/hepdata_info.pdf).
 
-This code (with appropriate modifications) was used in the following publications:
+This code was used in:
 
-* https://arxiv.org/abs/1903.04497
 * https://arxiv.org/abs/1803.10379
-* https://arxiv.org/abs/1801.02734
-* https://arxiv.org/abs/1806.05191
-* https://arxiv.org/abs/1902.05673
 
 Please cite if you use this code :-)
 

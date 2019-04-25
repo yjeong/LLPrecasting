@@ -7,7 +7,7 @@ This repository holds the main code for recasting the 8 TeV ATLAS search for dis
 in association with jets ([arXiv:1504.05162](https://arxiv.org/abs/1504.05162)). See also [ATLAS-SUSY-2014-02](https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2014-02/). It includes
 a simple displaced vertex reconstruction algorithm based on a functional form for tracking efficiency.
 
-This code was used in the following publication:
+This code was used in:
 
 * https://arxiv.org/abs/1606.03099
 
