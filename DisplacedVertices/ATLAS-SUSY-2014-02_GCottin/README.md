@@ -7,7 +7,7 @@ This repository holds the main code for recasting the 8 TeV ATLAS search for dis
 in association with jets ([arXiv:1504.05162](https://arxiv.org/abs/1504.05162)). See also [ATLAS-SUSY-2014-02](https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2014-02/). It includes
 a simple displaced vertex reconstruction algorithm based on a functional form for tracking efficiency.
 
-This code was used in:
+This code was validated in:
 
 * https://arxiv.org/abs/1606.03099
 
@@ -40,28 +40,23 @@ You can run with:
 ```
 An example Makefile can be found in DisplacedVertices/ATLAS-SUSY-2016-08_GCottin/pythiaCode/Makefile
 The basic required input is a (parton level) LHE or SLHA file.
-The output are efficiency files and cutflows 
+The output are efficiency files and cutflows
 
 ## pythiaCode ##
 
 In this folder you will find:
 
+* GGM2_softsusy_sdecay.slha  -- the ATLAS model benchmark we generated
+* GGM_softsusy_sdecay.slha -- the ATLAS model benchmark we generated
+* RPV_softsusy_sdecay.slha -- the ATLAS model benchmark we generated
 * displacedBM.cmnd -- pythia configuration parameters 
-* P0.spectr -- the DGS model spectra studied in [arXiv:1606.03099](https://arxiv.org/abs/1606.03099)
-* GGM2_softsusy_sdecay.slha  -- the ATLAS model spectra we generated
-* GGM_softsusy_sdecay.slha -- the ATLAS model spectra we generated
-* RPV_softsusy_sdecay.slha -- the ATLAS model spectra we generated
 * displacedRecoVertex.cc -- the main displaced vertex plus jets code
-* displacedRecoBestFit.cc -- the code used to find the best track efficiency parametrization
-* trackStudies.cc -- a code for some checks on relevant track parameters (i.e d0)
 * ToyDetector-ATLAS.cc -- the custom made detector simulation for this recast
 * ToyDetector-ATLAS.h
 
-
-## pythonScripts ##
+## Plots ##
 
 In this folder you will find:
 
-* dgsPhenoPlots.py -- the main plotting script for making the plots in [arXiv:1606.03099](https://arxiv.org/abs/1606.03099)
-* BestFitChi2.py --  code that decides on the best track efficiency parametrization parameters
-* trackStudies.py -- validation plots for the track studies performed with DisplacedVertices/ATLAS-SUSY-2014-02_GCottin/pythiaCode/trackStudies.cc
+* dgsPhenoPlots.py -- the main plotting script for making the validation plots shown in [arXiv:1606.03099](https://arxiv.org/abs/1606.03099)
+* Validation plots showing efficiency against proper lifetime for the three ATLAS benchmarks
