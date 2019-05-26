@@ -1,4 +1,4 @@
-// An example recasting code for applying the selection from ATLAS-CONF-2017-026
+// An example recasting code for applying the selection from ATLAS-SUSY-2016-08 and computing the efficiency
 
 #include <iostream>
 #include "Pythia8/Pythia.h"
@@ -14,7 +14,7 @@
 using namespace Pythia8;
 
 
-int run(int nevents, const string & cfgfile, const string & slhafile, const string &inifile, float weight)
+int run(int nevents, const string & cfgfile, const string & slhafile, const string &inifile, const string & outfile)
 {
 
 	//Get cuts and options from config file:
@@ -39,6 +39,7 @@ int run(int nevents, const string & cfgfile, const string & slhafile, const stri
 	double jetCutsFraction = confFile.get<double>("Options.applyJetCuts");
 
   std::srand(500);
+  FILE* OutputFile = fopen(outfile.c_str(), "w");
   // Generator. Shorthand for the event.
   Pythia pythia("",false); //Set printBanner to false
   Event& event = pythia.event;
@@ -55,7 +56,7 @@ int run(int nevents, const string & cfgfile, const string & slhafile, const stri
   fastjet::JetDefinition jetDef(fastjet::antikt_algorithm, Rjet);
 
   int iAbort = 0;
-  float nCuts = 0.;
+  int nCuts = 0;
 
   // Begin event loop.
   for (int iEvent = 0; iEvent < nevents; ++iEvent) {
@@ -84,7 +85,7 @@ int run(int nevents, const string & cfgfile, const string & slhafile, const stri
     passCuts = applyCuts(event, MET, DVs);
 
     if (!passCuts) continue;
-    nCuts += weight;
+    nCuts += 1;
 
 
   // End of event loop.
@@ -92,8 +93,10 @@ int run(int nevents, const string & cfgfile, const string & slhafile, const stri
 
   // Final statistics, flavor composition and histogram output.
 //  pythia.stat(); config file [pythia8.cfg]
-  cout << " Efficiency = " << float(nCuts)/(float(nevents)*weight)
+  cout << " Efficiency = " << float(nCuts)/float(nevents)
 							<< " ( " << nCuts << " evts )" << endl;
+  fprintf(OutputFile,"Efficiency = %1.3e, Total Number of Events = %i, Number of Events after cuts = %i \n",float(nCuts)/float(nevents),nevents,nCuts);
+  fclose(OutputFile);
 
 
   // Done.
@@ -105,15 +108,14 @@ void help( const char * name )
 {
 	  cout << "syntax: " << name << " [-h] [-f <slhafile>] [-n <number of events>] [-c <pythia cfg file>]" << endl;
 	  cout << "        -f <slhafile>:  input SLHA file [test.slha]" << endl;
+	  cout << "        -o <output file>:  output file name [test.eff]" << endl;
 	  cout << "        -c <pythia config file>:  pythia config file [pythia8.cfg]" << endl;
 	  cout << "        -p <parameters file>:  parameters file [parameters.ini]" << endl;
 	  cout << "        -n <number of events>:  Number of events to be generated [100]" << endl;
-	  cout << "        -w <event weight>:  Rescaling of events (total_xsec*luminosity/nevents) [1]" << endl;
   exit( 0 );
 };
 
 int main( int argc, const char * argv[] ) {
-  float weight = 1.;
   int nevents = 100;
   string slhafile = "test.slha";
   string outfile = "test.eff";
@@ -151,13 +153,6 @@ int main( int argc, const char * argv[] ) {
       continue;
     }
 
-    if ( s== "-w" )
-    {
-      if ( argc < i+2 ) help ( argv[0] );
-      weight = atof(argv[i+1]);
-      i++;
-      continue;
-    }
 
 
     if ( s== "-f" )
@@ -167,6 +162,7 @@ int main( int argc, const char * argv[] ) {
       i++;
       continue;
     }
+
     if ( s== "-o" )
     {
       if ( argc < i+2 ) help ( argv[0] );
@@ -180,7 +176,7 @@ int main( int argc, const char * argv[] ) {
     help ( argv[0] );
   };
 
-  int r = run(nevents, cfgfile, slhafile, parfile, weight);
+  int r = run(nevents, cfgfile, slhafile, parfile, outfile);
 
   return 0;
 }

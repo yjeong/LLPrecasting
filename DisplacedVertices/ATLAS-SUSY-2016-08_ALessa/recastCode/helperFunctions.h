@@ -177,7 +177,9 @@ std::vector<DisplacedVertex> getDVs(Event &event, double minPVdistance,
 	for (int i = 0; i < nRhadrons; ++i) {
 		float effCut = (std::rand()/(float)RAND_MAX); //effCut = random(0,1)
 
+
 		Vec4 RhadronVertex = Rhadrons[i]->vDec();
+
 		//Apply basic selection efficiency
 		if (RhadronVertex.pT() < minPVdistance) continue;  //Transverse plane separation from PV > 4mm
 		if (RhadronVertex.pT() > maxRDV) continue;  //|R_DV| < 300 mm
@@ -224,16 +226,19 @@ Vec4 getMissingMomentum(Event &event)
     Vec4 missingETvec;
     for (int i = 0; i < event.size(); ++i) {
       // Final state only
-      if (!event[i].isFinal()) continue;
+      if (!event[i].isFinal()) continue; //Ignore intermediate states
+      if (!event[i].isNeutral()) continue; //Ignore charged particles
+      if (event[i].isHadron()) continue;  //Ignore usual hadrons
+      if (event[i].colType() != 0) continue; //Ignore charged particles
+      if (event[i].status() == 104) continue; //Ignore stable R-Hadrons
+      if (event[i].idAbs() == 22) continue; //Ignore photons
       // Missing momentum
-      if(event[i].idAbs() == 12 || event[i].idAbs() == 14 || event[i].idAbs() == 16
-    		  || event[i].idAbs() == 1000022
-			  || event[i].idAbs() == 1000023
-			  || event[i].idAbs() == 1000025
-      	  	  || event[i].idAbs() == 1000035){missingETvec += event[i].p();}
+      missingETvec += event[i].p();
     }
     return missingETvec;
 }
+
+
 
 
 bool applyJetCuts(Event &event, fastjet::JetDefinition jetDef,
