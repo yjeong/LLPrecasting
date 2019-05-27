@@ -69,18 +69,18 @@ int run(int nevents, const string & cfgfile, const string & slhafile, const stri
     }
 
     bool passCuts;
-	//Split analysis is two bunchs: 75% and 25%
-	float lumCut = (std::rand()/(float)RAND_MAX); //lumCut = random(0,1)
-	if (lumCut < jetCutsFraction){
-		passCuts = applyJetCuts(event, jetDef, pTjet,
-				maxJetChargedPT,minJetPt1, minJetPt2,minPVdistance);
-	}
-	else {passCuts = true;}
-	if (!passCuts){continue;}
+    //Split analysis is two bunchs: 75% and 25%
+    float lumCut = (std::rand()/(float)RAND_MAX); //lumCut = random(0,1)
+    if (lumCut < jetCutsFraction){
+        passCuts = applyJetCuts(event, jetDef, pTjet,
+            maxJetChargedPT,minJetPt1, minJetPt2,minPVdistance);
+    }
+    else {passCuts = true;}
+    if (!passCuts){continue;}
 
-	//Get good displaced vertices:
-	vector<DisplacedVertex> DVs = getDVs(event,minPVdistance,maxRDV,maxZDV,
-			minTrackPT, minTrackD0, minDecProd,	minDVmass);
+    //Get good displaced vertices:
+    vector<DisplacedVertex> DVs = getDVs(event,minPVdistance,maxRDV,maxZDV,
+                                        minTrackPT, minTrackD0, minDecProd,	minDVmass);
 
     passCuts = applyCuts(event, MET, DVs);
 
@@ -94,7 +94,7 @@ int run(int nevents, const string & cfgfile, const string & slhafile, const stri
   // Final statistics, flavor composition and histogram output.
 //  pythia.stat(); config file [pythia8.cfg]
   cout << " Efficiency = " << float(nCuts)/float(nevents)
-							<< " ( " << nCuts << " evts )" << endl;
+                           << " ( " << nCuts << " evts )" << endl;
   fprintf(OutputFile,"Efficiency = %1.3e, Total Number of Events = %i, Number of Events after cuts = %i \n",float(nCuts)/float(nevents),nevents,nCuts);
   fclose(OutputFile);
 

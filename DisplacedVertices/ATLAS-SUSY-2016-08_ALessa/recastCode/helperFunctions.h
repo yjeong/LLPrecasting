@@ -10,19 +10,19 @@ using namespace Pythia8;
 class DisplacedVertex: public Particle {
   public:
 
-	DisplacedVertex(){}
-	DisplacedVertex(const Particle& pt) : Particle(pt) {}
-	virtual ~DisplacedVertex() {}
+    DisplacedVertex(){}
+    DisplacedVertex(const Particle& pt) : Particle(pt) {}
+    virtual ~DisplacedVertex() {}
 
-	vector<Particle*> decayProducts;
-	int nTracks() const {return decayProducts.size();}
-	double mDV() const {
-		Vec4 pCharged;
-		for (int i=0; i < decayProducts.size(); ++ i){
-			pCharged += decayProducts[i]->p();
-		}
-		return pCharged.mCalc();
-	}
+    vector<Particle*> decayProducts;
+    int nTracks() const {return decayProducts.size();}
+    double mDV() const {
+        Vec4 pCharged;
+        for (int i=0; i < decayProducts.size(); ++ i){
+            pCharged += decayProducts[i]->p();
+        }
+        return pCharged.mCalc();
+    }
 
  };
 
@@ -30,12 +30,12 @@ double d0Calc(Vec4 xv, Vec4 p)
 //Compute the transverse impact parameter for a particle with momentum p created at vertex xv
 //assuming no magnetic field
 {
-	double calpha = p.px()/p.pT();
-	double salpha = p.py()/p.pT();
+    double calpha = p.px()/p.pT();
+    double salpha = p.py()/p.pT();
 
-	double a0 = xv.px()*salpha - xv.py()*calpha;
+    double a0 = xv.px()*salpha - xv.py()*calpha;
 
-	return fabs(a0);
+    return fabs(a0);
 }
 
 double getEvEff(double MET, double Rmax)
@@ -43,25 +43,25 @@ double getEvEff(double MET, double Rmax)
 //from ATLAS efficiency maps
 {
 
-	vector< vector<double> > effData;
-	string table;
-	if (Rmax < 1150.){
-		effData = effEv_table22; //Fig.20a
-	}
-	else if (Rmax < 3870.){
-		effData = effEv_table23; //Fig.20b
-	}
-	else{effData = effEv_table24;} //Fig.20c
+    vector< vector<double> > effData;
+    string table;
+    if (Rmax < 1150.){
+        effData = effEv_table22; //Fig.20a
+    }
+    else if (Rmax < 3870.){
+        effData = effEv_table23; //Fig.20b
+    }
+    else{effData = effEv_table24;} //Fig.20c
 
-	double METbinLow,METbinHigh,eff;
-	for (int i = 0; i < effData.size(); ++i){
-		METbinLow = effData[i][1];
-		METbinHigh = effData[i][2];
-		eff = effData[i][3];
-		if (METbinLow <= MET && MET < METbinHigh){return eff;}
-	}
+    double METbinLow,METbinHigh,eff;
+    for (int i = 0; i < effData.size(); ++i){
+        METbinLow = effData[i][1];
+        METbinHigh = effData[i][2];
+        eff = effData[i][3];
+        if (METbinLow <= MET && MET < METbinHigh){return eff;}
+    }
 
-	return 0.;
+    return 0.;
 }
 
 double getDVEff(double mDV, int nTracks, double Rmax)
@@ -69,61 +69,61 @@ double getDVEff(double mDV, int nTracks, double Rmax)
 //from ATLAS efficiency maps
 {
 
-	vector< vector<double> > effData;
-	string table;
-	if ( Rmax < 4.){return 0.;}
-	else if (Rmax < 22.){
-		effData = effDV_table25; //Fig.21a
-	}
-	else if (Rmax < 25.){
-		effData = effDV_table26; //Fig.21b
-	}
-	else if (Rmax < 29.){
-		effData = effDV_table27; //Fig.21c
-	}
-	else if (Rmax < 38.){
-		effData = effDV_table28; //Fig.21d
-	}
-	else if (Rmax < 46.){
-		effData = effDV_table29; //Fig.21e
-	}
-	else if (Rmax < 73.){
-		effData = effDV_table30; //Fig.21f
-	}
-	else if (Rmax < 84.){
-		effData = effDV_table31; //Fig.22a
-	}
-	else if (Rmax < 111.){
-		effData = effDV_table32; //Fig.22b
-	}
-	else if (Rmax < 120.){
-		effData = effDV_table33; //Fig.22c
-	}
-	else if (Rmax < 145.){
-		effData = effDV_table34; //Fig.22d
-	}
-	else if (Rmax < 180.){
-		effData = effDV_table35; //Fig.22e
-	}
-	else if (Rmax < 300.){
-		effData = effDV_table36; //Fig.22f
-	}
-	else{return 0.;}
+    vector< vector<double> > effData;
+    string table;
+    if ( Rmax < 4.){return 0.;}
+    else if (Rmax < 22.){
+        effData = effDV_table25; //Fig.21a
+    }
+    else if (Rmax < 25.){
+        effData = effDV_table26; //Fig.21b
+    }
+    else if (Rmax < 29.){
+        effData = effDV_table27; //Fig.21c
+    }
+    else if (Rmax < 38.){
+        effData = effDV_table28; //Fig.21d
+    }
+    else if (Rmax < 46.){
+        effData = effDV_table29; //Fig.21e
+    }
+    else if (Rmax < 73.){
+        effData = effDV_table30; //Fig.21f
+    }
+    else if (Rmax < 84.){
+        effData = effDV_table31; //Fig.22a
+    }
+    else if (Rmax < 111.){
+        effData = effDV_table32; //Fig.22b
+    }
+    else if (Rmax < 120.){
+        effData = effDV_table33; //Fig.22c
+    }
+    else if (Rmax < 145.){
+        effData = effDV_table34; //Fig.22d
+    }
+    else if (Rmax < 180.){
+        effData = effDV_table35; //Fig.22e
+    }
+    else if (Rmax < 300.){
+        effData = effDV_table36; //Fig.22f
+    }
+    else{return 0.;}
 
 
-	double mDVbinLow,mDVbinHigh,nTracksbinLow,nTracksbinHigh,eff;
-	for (int i = 0; i < effData.size(); ++i){
-		mDVbinLow = effData[i][1];
-		mDVbinHigh = effData[i][2];
-		nTracksbinLow = int(effData[i][4]);
-		nTracksbinHigh = int(effData[i][5]);
-		eff = effData[i][6];
-		if (mDVbinLow <= mDV && mDV < mDVbinHigh &&
-				nTracksbinLow <= nTracks && nTracks < nTracksbinHigh){
-			return eff;}
-	}
+    double mDVbinLow,mDVbinHigh,nTracksbinLow,nTracksbinHigh,eff;
+    for (int i = 0; i < effData.size(); ++i){
+        mDVbinLow = effData[i][1];
+        mDVbinHigh = effData[i][2];
+        nTracksbinLow = int(effData[i][4]);
+        nTracksbinHigh = int(effData[i][5]);
+        eff = effData[i][6];
+        if (mDVbinLow <= mDV && mDV < mDVbinHigh &&
+                nTracksbinLow <= nTracks && nTracks < nTracksbinHigh){
+            return eff;}
+    }
 
-	return 0.;
+    return 0.;
 }
 
 std::vector<Particle*> getDaughters(Particle* &mom, Event &event)
@@ -141,7 +141,7 @@ std::vector<Particle*> getDaughters(Particle* &mom, Event &event)
     //Get list of daughters:
     std::vector<Particle*> daughters;
     for (int j = 0; j < dIndices.size(); ++j){
-    	daughters.push_back(&event[dIndices[j]]);
+        daughters.push_back(&event[dIndices[j]]);
     }
 
     return daughters;
@@ -166,57 +166,57 @@ std::vector<Particle*> getRhadrons(Event &event)
 
 
 std::vector<DisplacedVertex> getDVs(Event &event, double minPVdistance,
-		double maxRDV, double maxZDV, double minTrackPT, double minTrackD0,
-		double minDecProd,	double minDVmass){
+        double maxRDV, double maxZDV, double minTrackPT, double minTrackD0,
+        double minDecProd,    double minDVmass){
 //Returns a vector with displaced vertices satisfying minimum selection criterium
 
-	std::vector<DisplacedVertex> DVs;  //Store DVs that passes the cuts
+    std::vector<DisplacedVertex> DVs;  //Store DVs that passes the cuts
     //Get Rhadrons from event:
     std::vector<Particle*> Rhadrons = getRhadrons(event);
     int nRhadrons = Rhadrons.size();
-	for (int i = 0; i < nRhadrons; ++i) {
-		float effCut = (std::rand()/(float)RAND_MAX); //effCut = random(0,1)
+    for (int i = 0; i < nRhadrons; ++i) {
+        float effCut = (std::rand()/(float)RAND_MAX); //effCut = random(0,1)
 
 
-		Vec4 RhadronVertex = Rhadrons[i]->vDec();
+        Vec4 RhadronVertex = Rhadrons[i]->vDec();
 
-		//Apply basic selection efficiency
-		if (RhadronVertex.pT() < minPVdistance) continue;  //Transverse plane separation from PV > 4mm
-		if (RhadronVertex.pT() > maxRDV) continue;  //|R_DV| < 300 mm
-		if (fabs(RhadronVertex.pz()) > maxZDV) continue;  //|z_DV| < 300 mm
+        //Apply basic selection efficiency
+        if (RhadronVertex.pT() < minPVdistance) continue;  //Transverse plane separation from PV > 4mm
+        if (RhadronVertex.pT() > maxRDV) continue;  //|R_DV| < 300 mm
+        if (fabs(RhadronVertex.pz()) > maxZDV) continue;  //|z_DV| < 300 mm
 
-		//Get daughters from R-hadron:
-		std::vector<Particle*> daughters = getDaughters(Rhadrons[i],event);
-		//Define DV candidate object to store candidate tracks as well:
-		DisplacedVertex DV(*Rhadrons[i]);
-		//Get selected decay products:
-		Vec4 pCTotal;
-		Vec4 pC;
-		int nGoodTracks = 0;
-		double d0,z0,DVeff,Rdecay;
-		for (int j=0; j < daughters.size(); ++j){
-			if(daughters[j]->isNeutral()) continue; //Only consider charged particles
-			pC = daughters[j]->p();
-			if (pC.pT() < minTrackPT) continue; //p_T > 1 GeV for tracks
-			d0 = d0Calc(RhadronVertex,pC);
-			if (fabs(d0) < minTrackD0) continue;  //|d_0| > 2mm for tracks
-			DV.decayProducts.push_back(daughters[j]);
-		}
+        //Get daughters from R-hadron:
+        std::vector<Particle*> daughters = getDaughters(Rhadrons[i],event);
+        //Define DV candidate object to store candidate tracks as well:
+        DisplacedVertex DV(*Rhadrons[i]);
+        //Get selected decay products:
+        Vec4 pCTotal;
+        Vec4 pC;
+        int nGoodTracks = 0;
+        double d0,z0,DVeff,Rdecay;
+        for (int j=0; j < daughters.size(); ++j){
+            if(daughters[j]->isNeutral()) continue; //Only consider charged particles
+            pC = daughters[j]->p();
+            if (pC.pT() < minTrackPT) continue; //p_T > 1 GeV for tracks
+            d0 = d0Calc(RhadronVertex,pC);
+            if (fabs(d0) < minTrackD0) continue;  //|d_0| > 2mm for tracks
+            DV.decayProducts.push_back(daughters[j]);
+        }
 
-		//Apply vertex cuts:
-		if (DV.decayProducts.size() < minDecProd){continue;}
-		if (DV.mDV() < minDVmass){continue;}
+        //Apply vertex cuts:
+        if (DV.decayProducts.size() < minDecProd){continue;}
+        if (DV.mDV() < minDVmass){continue;}
 
 
-		//Apply DV reconstruction efficiency:
-		Rdecay = RhadronVertex.pT();
-		DVeff = getDVEff(DV.mDV(),DV.decayProducts.size(),Rdecay);
-//		cout << DV.mDV() << " " << DV.decayProducts.size()
-//				<< " " << Rdecay << " " << DVeff << " " << effCut << endl;
-		if (DVeff < effCut){continue;} // skip if DV_eff > effcut
-		DVs.push_back(DV);
-	} //End of loop over R-hadrons
-	return DVs;
+        //Apply DV reconstruction efficiency:
+        Rdecay = RhadronVertex.pT();
+        DVeff = getDVEff(DV.mDV(),DV.decayProducts.size(),Rdecay);
+//        cout << DV.mDV() << " " << DV.decayProducts.size()
+//                << " " << Rdecay << " " << DVeff << " " << effCut << endl;
+        if (DVeff < effCut){continue;} // skip if DV_eff > effcut
+        DVs.push_back(DV);
+    } //End of loop over R-hadrons
+    return DVs;
 }
 
 
@@ -242,13 +242,13 @@ Vec4 getMissingMomentum(Event &event)
 
 
 bool applyJetCuts(Event &event, fastjet::JetDefinition jetDef,
-		double pTjet, double maxJetChargedPT,
-		double minJetPt1, double minJetPt2,	double minPVdistance)
+        double pTjet, double maxJetChargedPT,
+        double minJetPt1, double minJetPt2,    double minPVdistance)
 //Apply basic selection cuts based on jet requirements
 {
-	//Get jets:
-	vector <fastjet::PseudoJet> inclusiveJets, jets;
-	std::vector <fastjet::PseudoJet> fjInputs; //particles for applying jet clustering
+    //Get jets:
+    vector <fastjet::PseudoJet> inclusiveJets, jets;
+    std::vector <fastjet::PseudoJet> fjInputs; //particles for applying jet clustering
     // Loop over particles in the event: kinematic distribution
     for (int i = 0; i < event.size(); ++i) {
         // Require visible particles inside detector.
@@ -261,50 +261,50 @@ bool applyJetCuts(Event &event, fastjet::JetDefinition jetDef,
     inclusiveJets = clustSeq.inclusive_jets(pTjet);
     jets    = sorted_by_pt(inclusiveJets);
 
-	int nGoodJets = 0;
-	bool passJetCuts = false;
-	double pTCharged;
-	Particle jetParticle;
-	for(int i = 0; i < jets.size(); ++i){
-		pTCharged = 0.;
-		vector<fastjet::PseudoJet> constituents = jets[i].constituents();
-		for (int j = 0; j < constituents.size(); j++) {
-			jetParticle = event[constituents[j].user_index()];
-			if (jetParticle.isNeutral()){continue;}
-			if (jetParticle.vProd().pT() > minPVdistance){continue;}
-			pTCharged += jetParticle.pT();
-		}
-		if (pTCharged > maxJetChargedPT) {continue;}
-		if (jets[i].pt() > minJetPt1){passJetCuts = true; break;}
-		if (jets[i].pt() > minJetPt2){++nGoodJets;}
+    int nGoodJets = 0;
+    bool passJetCuts = false;
+    double pTCharged;
+    Particle jetParticle;
+    for(int i = 0; i < jets.size(); ++i){
+        pTCharged = 0.;
+        vector<fastjet::PseudoJet> constituents = jets[i].constituents();
+        for (int j = 0; j < constituents.size(); j++) {
+            jetParticle = event[constituents[j].user_index()];
+            if (jetParticle.isNeutral()){continue;}
+            if (jetParticle.vProd().pT() > minPVdistance){continue;}
+            pTCharged += jetParticle.pT();
+        }
+        if (pTCharged > maxJetChargedPT) {continue;}
+        if (jets[i].pt() > minJetPt1){passJetCuts = true; break;}
+        if (jets[i].pt() > minJetPt2){++nGoodJets;}
 
-	}
-	if (nGoodJets >= 2){passJetCuts = true;}
-	if (!passJetCuts){return false;}
+    }
+    if (nGoodJets >= 2){passJetCuts = true;}
+    if (!passJetCuts){return false;}
 
-	return true;
+    return true;
 
 }
 
 bool applyCuts(Event &event, double missingETcut,
-		vector<DisplacedVertex> DVs)
+        vector<DisplacedVertex> DVs)
 //Apply basic pre-selections cuts for fiducial phase space
 {
 
-	double MET = getMissingMomentum(event).pT();
-	if (MET < missingETcut) {return false;}
+    double MET = getMissingMomentum(event).pT();
+    if (MET < missingETcut) {return false;}
 
-	if (DVs.size() < 1){return false;}
+    if (DVs.size() < 1){return false;}
 
-	//Get event selection efficiency:
-	double Rmax = 0.;
-	for (int i =0; i < DVs.size(); ++i){
-		Rmax = max(Rmax,DVs[i].vDec().pT());
-	}
-	double evEff = getEvEff(MET,Rmax);
-	float effCut = (std::rand()/(float)RAND_MAX); //effCut = random(0,1)
-	if (evEff < effCut){return false;} // skip if evEff > effcut
+    //Get event selection efficiency:
+    double Rmax = 0.;
+    for (int i =0; i < DVs.size(); ++i){
+        Rmax = max(Rmax,DVs[i].vDec().pT());
+    }
+    double evEff = getEvEff(MET,Rmax);
+    float effCut = (std::rand()/(float)RAND_MAX); //effCut = random(0,1)
+    if (evEff < effCut){return false;} // skip if evEff > effcut
 
-	return true;
+    return true;
 }
 
